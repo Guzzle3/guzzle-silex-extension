@@ -3,12 +3,12 @@
 namespace Guzzle;
 
 use Silex\Application;
-use Silex\ExtensionInterface;
+use Silex\ServiceProviderInterface;
 use Guzzle\Service\ServiceBuilder;
 use Guzzle\Service\Client;
 
 /**
- * Guzzle extension for Silex
+ * Guzzle service provider for Silex
  *
  * = Parameters:
  *  guzzle.class_path: (optional) Path to where the Guzzle library is located.
@@ -27,10 +27,10 @@ use Guzzle\Service\Client;
  *   guzzle.client: A default Guzzle web service client using a dumb base URL.
  *
  * @link http://www.guzzlephp.org/docs/tour/using_services/#instantiating-web-service-clients-using-a-servicebuilder
- * @link http://silex-project.org/doc/extensions.html
+ * @link http://silex.sensiolabs.org/doc/providers.html
  * @author Michael Dowling <michael@guzzlephp.org>
  */
-class GuzzleExtension implements ExtensionInterface
+class GuzzleServiceProvider implements ServiceProviderInterface
 {
     /**
      * Register Guzzle with Silex

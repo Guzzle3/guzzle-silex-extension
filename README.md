@@ -1,9 +1,9 @@
-Guzzle Silex extension
-======================
+Guzzle Silex Service Provider
+=============================
 
-The GuzzleExtension provides a Guzzle ServiceBuilder and default Client object through Michael Dowling’s Guzzle framework.  Guzzle is a PHP HTTP client and framework for building RESTful web service clients.
+The GuzzleServiceProvider provides a Guzzle ServiceBuilder and default Client object through Michael Dowling’s Guzzle framework.  Guzzle is a PHP HTTP client and framework for building RESTful web service clients.
 
-You will need to [install a copy of Guzzle](http://www.guzzlephp.org/docs/tour/overview/) in order to use this extension.
+You will need to [install a copy of Guzzle](http://www.guzzlephp.org/docs/tour/overview/) in order to use this service provider.
 
 Parameters
 ----------
@@ -24,14 +24,14 @@ Registering
 -----------
 
     require __DIR__ . '/../silex.phar';
-    require __DIR__ . '/../vendor/Guzzle/GuzzleExtension.php';
+    require __DIR__ . '/../vendor/Guzzle/GuzzleServiceProvider.php';
 
     use Silex\Application;
-    use Guzzle\GuzzleExtension;
+    use Guzzle\GuzzleServiceProvider;
 
     $app = new Application();
 
-    $app->register(new GuzzleExtension(), array(
+    $app->register(new GuzzleServiceProvider(), array(
         'guzzle.services' => '/path/to/services.js',
         'guzzle.class_path' => '/path/to/guzzle/src'
     ));

@@ -16,9 +16,6 @@ use Guzzle\Service\Client;
  *      your web service clients.  You can pass the path to a file
  *      (.xml|.js|.json), an array of data, or an instantiated SimpleXMLElement
  *      containing configuration data.  See the Guzzle docs for more info.
- *  guzzle.builder_cache: (optional) A Guzzle\Common\CacheAdapter object used
- *      to cache the parsed configuration data.
- *  guzzle.builder_ttl: (optional) How long to cache the parsed service data.
  *  guzzle.builder_format: (optional) Pass the file extension (xml, js) when
  *      using a file that does not use the standard file extension
  *
@@ -26,8 +23,6 @@ use Guzzle\Service\Client;
  *   guzzle: An instantiated Guzzle ServiceBuilder.
  *   guzzle.client: A default Guzzle web service client using a dumb base URL.
  *
- * @link http://www.guzzlephp.org/docs/tour/using_services/#instantiating-web-service-clients-using-a-servicebuilder
- * @link http://silex.sensiolabs.org/doc/providers.html
  * @author Michael Dowling <michael@guzzlephp.org>
  */
 class GuzzleServiceProvider implements ServiceProviderInterface
@@ -46,12 +41,7 @@ class GuzzleServiceProvider implements ServiceProviderInterface
                 $builder = new ServiceBuilder(array());
             } else {
                 $app['guzzle.builder_format'] = isset($app['guzzle.builder_format']) ?: false;
-                if (isset($app['guzzle.builder_cache'])) {
-                    $app['guzzle.builder_ttl'] = isset($app['guzzle.builder_ttl']) ?: 86400;
-                    $builder = ServiceBuilder::factory($app['guzzle.services'], $app['guzzle.builder_cache'], $app['guzzle.builder_ttl'], $app['guzzle.builder_format']);
-                } else {
-                    $builder = ServiceBuilder::factory($app['guzzle.services'], null, null, $app['guzzle.builder_format']);
-                }
+                $builder = ServiceBuilder::factory($app['guzzle.services'], $app['guzzle.builder_format']);
             }
 
             return $builder;

@@ -9,10 +9,8 @@ Parameters
 ----------
 
 * guzzle.class_path: (optional) Path to where the Guzzle library is located.
-* guzzle.services: (optional) array|string|SimpleXMLElement Data describing your web service clients.  You can pass the path to a file (.xml|.js|.json), an array of data, or an instantiated SimpleXMLElement containing configuration data.  See the [Guzzle docs](http://www.guzzlephp.org/docs/tour/using_services/#instantiating-web-service-clients-using-a-servicebuilder) for more info.
-* guzzle.builder_cache: (optional) A Guzzle\Common\CacheAdapter object used to cache the parsed configuration data.
-* guzzle.builder_ttl: (optional) How long to cache the parsed configuration data.
-* guzzle.builder_format: (optional) Pass the file extension (xml, js) when using a file that does not use the standard file extension
+* guzzle.services: (optional) array|string|SimpleXMLElement Data describing your web service clients.  You can pass the path to a file (.xml|.js|.json), an array of data, or an instantiated SimpleXMLElement containing configuration data.  See the [Guzzle docs](http://guzzlephp.org/tour/using_services.html#instantiating-web-service-clients-using-a-servicebuilder) for more info.
+* guzzle.builder_format: (optional) Pass the file extension (xml, js, json) when using a file that does not use the standard file extension
 
 Services
 --------
@@ -56,4 +54,4 @@ Using the Guzzle client:
 
 More information
 ----------------
-More information about Guzzle ServiceBuilders can be found at http://www.guzzlephp.org/docs/tour/using_services/#instantiating-web-service-clients-using-a-servicebuilder
+More information about Guzzle ServiceBuilders can be found at http://guzzlephp.org/tour/using_services.html#instantiating-web-service-clients-using-a-servicebuilder

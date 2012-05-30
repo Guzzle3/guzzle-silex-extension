@@ -50,7 +50,7 @@ Using the instantiated ServiceBuilder:
 
 Using the Guzzle client:
 
-    $response = $app['guzzle.client']->head('http://www.guzzlephp.org/)->send();
+    $response = $app['guzzle.client']->head('http://www.guzzlephp.org/')->send();
 
 More information
 ----------------

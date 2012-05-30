@@ -57,4 +57,8 @@ class GuzzleServiceProvider implements ServiceProviderInterface
             $app['autoloader']->registerNamespace('Guzzle', $app['guzzle.class_path']);
         }
     }
+    
+    public function boot(Application $app)
+    {
+    }
 }

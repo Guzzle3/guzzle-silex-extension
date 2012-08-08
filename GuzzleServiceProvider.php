@@ -4,7 +4,7 @@ namespace Guzzle;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use Guzzle\Service\ServiceBuilder;
+use Guzzle\Service\Builder\ServiceBuilder;
 use Guzzle\Service\Client;
 
 /**
@@ -40,7 +40,7 @@ class GuzzleServiceProvider implements ServiceProviderInterface
             if (!isset($app['guzzle.services'])) {
                 $builder = new ServiceBuilder(array());
             } else {
-                $app['guzzle.builder_format'] = isset($app['guzzle.builder_format']) ?: false;
+                $app['guzzle.builder_format'] = isset($app['guzzle.builder_format']) ? $app['guzzle.builder_format'] : null;
                 $builder = ServiceBuilder::factory($app['guzzle.services'], $app['guzzle.builder_format']);
             }
 

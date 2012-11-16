@@ -11,12 +11,13 @@ Parameters
 * guzzle.class_path: (optional) Path to where the Guzzle library is located.
 * guzzle.services: (optional) array|string|SimpleXMLElement Data describing your web service clients.  You can pass the path to a file (.xml|.js|.json), an array of data, or an instantiated SimpleXMLElement containing configuration data.  See the [Guzzle docs](http://guzzlephp.org/tour/using_services.html#instantiating-web-service-clients-using-a-servicebuilder) for more info.
 * guzzle.builder_format: (optional) Pass the file extension (xml, js, json) when using a file that does not use the standard file extension
+* guzzle.base_url: (optional) The base url for the default web service client. When left out, the actual calls made must use absolute URLs.
 
 Services
 --------
 
 * guzzle: An instantiated Guzzle ServiceBuilder.
-* guzzle.client: A default Guzzle web service client using a dumb base URL.
+* guzzle.client: A default Guzzle web service client using the base URL.
 
 Registering
 -----------

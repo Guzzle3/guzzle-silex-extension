@@ -49,11 +49,10 @@ class GuzzleServiceProvider implements ServiceProviderInterface
 
         // Register a simple Guzzle Client object (requires absolute URLs when guzzle.base_url is unset)
         $app['guzzle.client'] = $app->share(function() use ($app) {
-            if(isset($app['guzzle.base_url'])) {
-                return new Client($app['guzzle.base_url']);
-            }
-            return new Client('/');
+            return new Client($app['guzzle.base_url']);
         });
+
+        $app['guzzle.base_url'] = '/';
 
         // Register the Guzzle namespace if guzzle.class_path is set
         if (isset($app['guzzle.class_path'])) {

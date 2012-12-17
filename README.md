@@ -3,7 +3,7 @@ Guzzle Silex Service Provider
 
 The GuzzleServiceProvider provides a Guzzle ServiceBuilder and default Client object through Michael Dowling’s Guzzle framework.  Guzzle is a PHP HTTP client and framework for building RESTful web service clients.
 
-You will need to [install a copy of Guzzle](http://www.guzzlephp.org/docs/tour/overview/) in order to use this service provider.
+You will need to [install a copy of Guzzle](http://guzzlephp.org/tour/installation.html) in order to use this service provider.
 
 Parameters
 ----------

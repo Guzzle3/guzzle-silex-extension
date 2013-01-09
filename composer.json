@@ -1,6 +1,6 @@
 {
     "name": "guzzle/silex-provider",
-    "type": "silex provider",
+    "type": "silex-provider",
     "description": "Guzzle silex provider",
     "keywords": ["Guzzle", "Silex"],
     "version": "2.0",

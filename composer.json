@@ -3,7 +3,6 @@
     "type": "silex-provider",
     "description": "Guzzle silex provider",
     "keywords": ["Guzzle", "Silex"],
-    "version": "2.0",
     "authors": [
         {
             "name": "Michael Dowling",

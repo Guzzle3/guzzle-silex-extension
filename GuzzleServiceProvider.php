@@ -11,7 +11,6 @@ use Guzzle\Service\Client;
  * Guzzle service provider for Silex
  *
  * = Parameters:
- *  guzzle.class_path: (optional) Path to where the Guzzle library is located.
  *  guzzle.services: (optional) array|string|SimpleXMLElement Data describing
  *      your web service clients.  You can pass the path to a file
  *      (.xml|.js|.json), an array of data, or an instantiated SimpleXMLElement
@@ -53,13 +52,8 @@ class GuzzleServiceProvider implements ServiceProviderInterface
         });
 
         $app['guzzle.base_url'] = '/';
-
-        // Register the Guzzle namespace if guzzle.class_path is set
-        if (isset($app['guzzle.class_path'])) {
-            $app['autoloader']->registerNamespace('Guzzle', $app['guzzle.class_path']);
-        }
     }
-    
+
     public function boot(Application $app)
     {
     }

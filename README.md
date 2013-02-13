@@ -10,6 +10,7 @@ Parameters
 
 * guzzle.services: (optional) array|string|SimpleXMLElement Data describing your web service clients.  You can pass the path to a file (.js|.json|.php), an array of data, or an instantiated SimpleXMLElement containing configuration data.  See the [Guzzle docs](http://guzzlephp.org/tour/using_services.html#instantiating-web-service-clients-using-a-servicebuilder) for more info.
 * guzzle.base_url: (optional) The base url for the default web service client. When left out, the actual calls made must use absolute URLs.
+* guzzle.plugins: (optional) An array of guzzle plugins to register with the client.
 
 Services
 --------

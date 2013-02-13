@@ -57,8 +57,6 @@ class GuzzleServiceProvider implements ServiceProviderInterface
 
             return $client;
         });
-
-        $app['guzzle.base_url'] = '/';
     }
 
     public function boot(Application $app)

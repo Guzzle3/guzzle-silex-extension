@@ -8,9 +8,7 @@ You will need to [install a copy of Guzzle](http://guzzlephp.org/tour/installati
 Parameters
 ----------
 
-* guzzle.class_path: (optional) Path to where the Guzzle library is located.
-* guzzle.services: (optional) array|string|SimpleXMLElement Data describing your web service clients.  You can pass the path to a file (.xml|.js|.json), an array of data, or an instantiated SimpleXMLElement containing configuration data.  See the [Guzzle docs](http://guzzlephp.org/tour/using_services.html#instantiating-web-service-clients-using-a-servicebuilder) for more info.
-* guzzle.builder_format: (optional) Pass the file extension (xml, js, json) when using a file that does not use the standard file extension
+* guzzle.services: (optional) array|string|SimpleXMLElement Data describing your web service clients.  You can pass the path to a file (.js|.json|.php), an array of data, or an instantiated SimpleXMLElement containing configuration data.  See the [Guzzle docs](http://guzzlephp.org/tour/using_services.html#instantiating-web-service-clients-using-a-servicebuilder) for more info.
 * guzzle.base_url: (optional) The base url for the default web service client. When left out, the actual calls made must use absolute URLs.
 * guzzle.plugins: (optional) An array of guzzle plugins to register with the client.
 
@@ -32,8 +30,7 @@ Registering
     $app = new Application();
 
     $app->register(new GuzzleServiceProvider(), array(
-        'guzzle.services' => '/path/to/services.js',
-        'guzzle.class_path' => '/path/to/guzzle/src'
+        'guzzle.services' => '/path/to/services.json',
     ));
 
 Example Usage
@@ -41,18 +38,13 @@ Example Usage
 
 Using the instantiated ServiceBuilder:
 
-    // Get a command from your Amazon S3 client
-    $command = $app['guzzle']['s3']->getCommand('bucket.list_bucket');
-    $command->setBucket('mybucket');
-
-    $objects = $client->execute($command);
-    foreach ($objects as $object) {
-        echo "{$object['key']} {$object['size']}\n";
-    }
+    // Get a command "foo" from "my_client"
+    $result = $app['guzzle']['my_client']->getCommand('foo');
+    $result = $foo->execute();
 
 Using the Guzzle client:
 
-    $response = $app['guzzle.client']->head('http://www.guzzlephp.org/')->send();
+    $response = $app['guzzle.client']->head('http://www.guzzlephp.org')->send();
 
 More information
 ----------------

@@ -15,6 +15,8 @@ use Guzzle\Service\Client;
  *      your web service clients.  You can pass the path to a file
  *      (.xml|.js|.json), an array of data, or an instantiated SimpleXMLElement
  *      containing configuration data.  See the Guzzle docs for more info.
+ *  guzzle.plugins: (optional) An array of guzzle plugins to register with the
+ *      client.
  *
  * = Services:
  *   guzzle: An instantiated Guzzle ServiceBuilder.
@@ -31,9 +33,11 @@ class GuzzleServiceProvider implements ServiceProviderInterface
      */
     public function register(Application $app)
     {
+        $app['guzzle.base_url'] = '/';
+        $app['guzzle.plugins'] = array();
+
         // Register a Guzzle ServiceBuilder
         $app['guzzle'] = $app->share(function () use ($app) {
-
             if (!isset($app['guzzle.services'])) {
                 $builder = new ServiceBuilder(array());
             } else {
@@ -45,10 +49,14 @@ class GuzzleServiceProvider implements ServiceProviderInterface
 
         // Register a simple Guzzle Client object (requires absolute URLs when guzzle.base_url is unset)
         $app['guzzle.client'] = $app->share(function() use ($app) {
-            return new Client($app['guzzle.base_url']);
-        });
+            $client = new Client($app['guzzle.base_url']);
 
-        $app['guzzle.base_url'] = '/';
+            foreach ($app['guzzle.plugins'] as $plugin) {
+                $client->addSubscriber($plugin);
+            }
+
+            return $client;
+        });
     }
 
     public function boot(Application $app)

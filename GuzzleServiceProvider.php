@@ -15,8 +15,6 @@ use Guzzle\Service\Client;
  *      your web service clients.  You can pass the path to a file
  *      (.xml|.js|.json), an array of data, or an instantiated SimpleXMLElement
  *      containing configuration data.  See the Guzzle docs for more info.
- *  guzzle.builder_format: (optional) Pass the file extension (xml, js) when
- *      using a file that does not use the standard file extension
  *
  * = Services:
  *   guzzle: An instantiated Guzzle ServiceBuilder.
@@ -39,8 +37,7 @@ class GuzzleServiceProvider implements ServiceProviderInterface
             if (!isset($app['guzzle.services'])) {
                 $builder = new ServiceBuilder(array());
             } else {
-                $app['guzzle.builder_format'] = isset($app['guzzle.builder_format']) ? $app['guzzle.builder_format'] : null;
-                $builder = ServiceBuilder::factory($app['guzzle.services'], $app['guzzle.builder_format']);
+                $builder = ServiceBuilder::factory($app['guzzle.services']);
             }
 
             return $builder;

@@ -48,4 +48,4 @@ Using the Guzzle client:
 
 More information
 ----------------
-More information about Guzzle ServiceBuilders can be found at http://guzzlephp.org/tour/using_services.html#instantiating-web-service-clients-using-a-servicebuilder
+More information about Guzzle ServiceBuilders can be found at http://docs.guzzlephp.org/en/latest/webservice-client/using-the-service-builder.html

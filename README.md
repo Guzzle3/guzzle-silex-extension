@@ -1,5 +1,5 @@
-Guzzle Silex Service Provider
-=============================
+Guzzle Service Provider
+=======================
 
 The GuzzleServiceProvider provides a Guzzle ServiceBuilder and default Client object through Michael Dowling’s Guzzle framework.  Guzzle is a PHP HTTP client and framework for building RESTful web service clients.
 
@@ -21,17 +21,48 @@ Services
 Registering
 -----------
 
-    require __DIR__ . '/../silex.phar';
-    require __DIR__ . '/../vendor/Guzzle/GuzzleServiceProvider.php';
+### Pimple
 
-    use Silex\Application;
-    use Guzzle\GuzzleServiceProvider;
+```php
+<?php
 
-    $app = new Application();
+use Guzzle\PimpleGuzzleServiceProvider;
 
-    $app->register(new GuzzleServiceProvider(), array(
-        'guzzle.services' => '/path/to/services.json',
-    ));
+$container = new \Pimple();
+
+$container['guzzle.services'] = '/path/to/services.json';
+(new PimpleGuzzleServiceProvider())->register($container);
+```
+
+### Silex
+
+```php
+<?php
+
+use Silex\Application;
+use Guzzle\SilexGuzzleServiceProvider;
+
+$app = new Application();
+
+$app->register(new SilexGuzzleServiceProvider(), array(
+    'guzzle.services' => '/path/to/services.json',
+));
+```
+
+### Cilex
+
+```php
+<?php
+
+use Cilex\Application;
+use Guzzle\CilexGuzzleServiceProvider;
+
+$app = new Application();
+
+$app->register(new CilexGuzzleServiceProvider(), array(
+    'guzzle.services' => '/path/to/services.json',
+));
+```
 
 Example Usage
 -------------

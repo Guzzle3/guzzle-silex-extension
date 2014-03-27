@@ -1,8 +1,8 @@
 {
-    "name": "guzzle/silex-provider",
-    "type": "silex-provider",
-    "description": "Guzzle silex provider",
-    "keywords": ["Guzzle", "Silex"],
+    "name": "guzzle/service-provider",
+    "type": "service-provider",
+    "description": "Guzzle service provider",
+    "keywords": ["Guzzle", "Pimple", "Silex", "Cilex"],
     "authors": [
         {
             "name": "Michael Dowling",
@@ -14,7 +14,11 @@
         "guzzle/guzzle": ">=2.0.0"
     },
     "autoload": {
-        "classmap": [ "GuzzleServiceProvider.php" ]
+        "classmap": [
+            "PimpleGuzzleServiceProvider.php",
+            "SilexGuzzleServiceProvider.php",
+            "CilexGuzzleServiceProvider.php"
+        ]
     },
     "extra": {
         "branch-alias": {

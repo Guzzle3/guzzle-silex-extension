@@ -34,7 +34,9 @@ class GuzzleServiceProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $app['guzzle.base_url'] = '/';
-        $app['guzzle.plugins'] = array();
+        if(!isset($app['guzzle.plugins'])){
+            $app['guzzle.plugins'] = array();
+        }
 
         // Register a Guzzle ServiceBuilder
         $app['guzzle'] = $app->share(function () use ($app) {

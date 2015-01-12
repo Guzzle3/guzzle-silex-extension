@@ -2,6 +2,7 @@
     "name": "guzzle/silex-provider",
     "type": "silex-provider",
     "description": "Guzzle silex provider",
+    "license": "MIT",
     "keywords": ["Guzzle", "Silex"],
     "authors": [
         {

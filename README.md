@@ -1,3 +1,8 @@
+THIS PROJECT IS DEPRECATED
+==========================
+
+This project is no longer maintained and has not been updated to work with Guzzle 5. If someone wishes to use Guzzle via a provider with Silex, then I suggest creating a new repo called something like `guzzle-silex-provider`, and I'll link to it from here.
+
 Guzzle Silex Service Provider
 =============================
 
